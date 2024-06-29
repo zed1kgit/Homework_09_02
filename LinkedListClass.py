@@ -5,11 +5,13 @@ class Node:
 
 
 class LinkedList:
-
+    """Класс для создания связанного листа"""
     def __init__(self):
         self.head = None
 
     def insert_at_head(self, data):
+        """Создает ноду с переданной информацией
+        и вставляет её в голову текущего экземпляра связанного списка"""
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
@@ -19,6 +21,8 @@ class LinkedList:
         return f"Узел с данными {new_node.data} добавлен в начало списка"
 
     def insert_at_end(self, data):
+        """Создает ноду с переданной информацией
+        и вставляет её в конец текущего экземпляра связанного списка"""
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
@@ -30,6 +34,7 @@ class LinkedList:
         return f"Узел с данными {new_node.data} добавлен в конец списка"
 
     def remove_node_position(self, rm_position):
+        """Удаляет ноду на переданной позиции"""
         if rm_position == 1:
             removed_node = self.head
             self.head = self.head.next_node
@@ -46,6 +51,8 @@ class LinkedList:
         return f"Удален узел с данными {removed_node.data} позиции {rm_position}"
 
     def insert_at_position(self, data, node_position):
+        """Создает ноду с переданной информацией
+        и вставляет её на переданную позицию текущего экземпляра связанного списка"""
         new_node = Node(data)
         if node_position == 1:
             self.insert_at_head(data)
@@ -72,6 +79,7 @@ class LinkedList:
         return f"Узел с данными {new_node.data} добавлен на позицию {node_position}"
 
     def print_ll(self):
+        """Отображает в консоли ноды текущего экземпляра связанного списка"""
         current_node = self.head
         while current_node:
             print(current_node.data)
@@ -79,6 +87,8 @@ class LinkedList:
         return "Данные списка выведены"
 
     def get(self, data):
+        """Проверяет если нода с переданной информацией
+        в текущем экземпляре связанного списка"""
         current_node = self.head
         while current_node:
             if current_node.data == data:
@@ -87,6 +97,8 @@ class LinkedList:
         return False, None
 
     def change_data(self, node_data, change_data):
+        """Меняет ноду с переданной информацией
+        в текущем экземпляре связанного списка на новую переданную"""
         current_node = self.head
         current_node_position = 1
         while current_node:
